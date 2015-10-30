@@ -1,0 +1,108 @@
+<html>
+<head>
+<script type="text/javascript">
+<!--
+
+var teams = new Array()
+
+teams[1] = new Array()
+teams[1][0] = "Celtics"
+teams[1][1] = "Lakers"
+teams[1][2] = "Bulls"
+
+teams[2] = new Array()
+teams[2][0] = "Yankees"
+teams[2][1] = "Cardinals"
+teams[2][2] = "Reds"
+
+var basketball = new Array()
+
+basketball[0] = new Array() 
+basketball[0][0] = "Larry Bird"
+basketball[0][1] = "Bill Russell"
+basketball[0][2] = "Kevin McHale"
+
+basketball[1] = new Array()
+basketball[1][0] = "Wilt Chamberlain"
+basketball[1][1] = "Jerry West"
+basketball[1][2] = "Magic Johnson"
+
+basketball[2] = new Array()
+basketball[2][0] = "Michael Jordan"
+basketball[2][1] = "Scottie Pippen"
+basketball[2][2] = "Dennis Rodman"
+
+var baseball = new Array()
+
+baseball[0] = new Array()
+baseball[0][0] = "Babe Ruth"
+baseball[0][1] = "Willie Mays"
+baseball[0][2] = "Mickey Mantle"
+
+baseball[1] = new Array()
+baseball[1][0] = "Mark McGuire"
+baseball[1][1] = "Ozzie Smith"
+baseball[1][2] = "Willie McGee"
+
+baseball[2] = new Array()
+baseball[2][0] = "Pete Rose"
+baseball[2][1] = "Johnny Bench"
+baseball[2][2] = "Joe Morgan"
+
+function fillTeams()
+{
+var whichIndex = document.getElementById("theSport").selectedIndex
+var numberOfTeams = teams[whichIndex].length
+
+for(i=0; i < numberOfTeams; i++)
+{
+document.getElementById("theTeams").options[i].text=teams[whichIndex][i]
+}
+}
+function fillPlayers()
+{
+var whichIndex = document.getElementById("theTeams").selectedIndex
+
+if(document.getElementById("theSport").selectedIndex == 1)
+{ 
+var numberOfPlayers = basketball[whichIndex].length
+for(i=0; i<numberOfPlayers; i++)
+{
+document.getElementById("thePlayers").options[i].text=basketball[whichIndex][i]
+}
+} 
+
+else if(document.getElementById("theSport").selectedIndex == 2) 
+{
+var numberOfPlayers = baseball[whichIndex].length
+for(i=0; i<numberOfPlayers; i++)
+{
+document.getElementById("thePlayers").options[i].text=baseball[whichIndex][i]
+}
+}
+}
+
+
+//-->
+</script>
+</head>
+<body>
+<form>
+<select id="theSport" onChange="fillTeams()">
+<option>Choose a Sport</option>
+<option>Basketball</option>
+<option>Baseball</option>
+</select>
+<select id="theTeams" size="3" onChange="fillPlayers()">
+<option>.....................</option>
+<option></option>
+<option></option>
+</select>
+<select id="thePlayers" size="3">
+<option>...................</option>
+<option></option>
+<option></option>
+</select>
+</form>
+</body>
+</html>
